@@ -1,0 +1,20 @@
+name = "livebot"
+main = "src/worker.ts"
+compatibility_date = "2023-07-10"
+
+[vars]
+# The necessary secrets are:
+# - LIVEBLOCKS_SECRET
+# - OPEN_AI_ACCESS_KEY
+
+
+
+[durable_objects]
+bindings = [
+  { name = "LiveWorker", class_name = "LiveWorker" },
+]
+
+
+[[migrations]]
+tag = "v1" # Should be unique for each entry
+new_classes = ["LiveWorker"] 
